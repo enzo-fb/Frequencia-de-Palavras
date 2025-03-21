@@ -1,7 +1,8 @@
-import exceptionPersonalizada
+from exceptionPersonalizada import  ExtrapolacaoDeCaracteres
 
 texto = str(input("Digite o texto a ser verificado:"))
 try:
-    len(texto)>2048
-except :
-    print("Texto com número de caracteres maior que o permitido!")
+    if len(texto)>2048:
+        raise ExtrapolacaoDeCaracteres("Texto com número de caracteres maior que o permitido!")
+except ExtrapolacaoDeCaracteres as e:
+    print(e)
