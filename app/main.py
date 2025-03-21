@@ -1,4 +1,5 @@
-from exceptionPersonalizada import  ExtrapolacaoDeCaracteres
+from exceptionPersonalizada import  ExtrapolacaoDeCaracteres 
+from exceptionPersonalizada import EmptyInputError
 import os
 def verificarFrequencia(texto):
     relacaoFinal = {} # dicionário para armazenar a tabela
@@ -9,12 +10,14 @@ def verificarFrequencia(texto):
     return relacaoFinal
 
 def tratarErro(texto):
-    try:
+
         if len(texto)>2048:
             raise ExtrapolacaoDeCaracteres("Texto com número de caracteres maior que o permitido!")
-    except ExtrapolacaoDeCaracteres as e:
-        return print(e)
 
+        texto = texto.strip()
+
+        if len(texto)==0:
+            raise EmptyInputError("Caixa de texto vazia!")        
  
 def tabela(relacao):
     relacaoOrdenada = dict(sorted(relacao.items(), key=lambda item: item[1], reverse=True))
@@ -23,10 +26,8 @@ def tabela(relacao):
     for x in relacaoOrdenada.items():
         print(x)
 
-
- 
-texto = str(input("Digite o texto a ser verificado:")).lower()
-tratarErro(texto)       
+texto = input("Digite o texto a ser verificado:").lower()
+tratarErro(texto)      
 relacao = verificarFrequencia(texto) #recebe o dicionário
 tabela(relacao)
 
