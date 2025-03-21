@@ -4,18 +4,20 @@ def verificarFrequencia(texto):
     relacaoFinal = {} # dicionário para armazenar a tabela
     listaDePalavras = texto.split() #lista com palavras do texto
     for x in listaDePalavras:
-        contagem = verificarFrequencia(x,listaDePalavras)
+        contagem = listaDePalavras.count(x)
         relacaoFinal.update({x:contagem})
     return relacaoFinal
 
+def tratarErro(texto):
+    try:
+        if len(texto)>2048:
+            raise ExtrapolacaoDeCaracteres("Texto com número de caracteres maior que o permitido!")
+    except ExtrapolacaoDeCaracteres as e:
+        return print(e)
+
 
 texto = str(input("Digite o texto a ser verificado:"))
-try:
-    if len(texto)>2048:
-        raise ExtrapolacaoDeCaracteres("Texto com número de caracteres maior que o permitido!")
-except ExtrapolacaoDeCaracteres as e:
-    print(e)
-       
+tratarErro(texto)       
 relacao = verificarFrequencia(texto) #recebe o dicionário
 
 
