@@ -16,10 +16,10 @@ def tratarErro(texto):
         return print(e)
 
 def tabela(relacao):
-    relacaoOrdenada = dict(sorted(relacao.items(), key=lambda item:item[1]))
+    relacaoOrdenada = dict(sorted(relacao.items(), key=lambda item: item[1], reverse=True))
     os.system('clear')
     print("Palavras - Frequência\t")
-    for x in relacao.items():
+    for x in relacaoOrdenada.items():
         print(x)
 
 
