@@ -15,6 +15,7 @@ def tratarErro(texto):
     except ExtrapolacaoDeCaracteres as e:
         return print(e)
 
+ 
 def tabela(relacao):
     relacaoOrdenada = dict(sorted(relacao.items(), key=lambda item: item[1], reverse=True))
     os.system('clear')
@@ -23,7 +24,7 @@ def tabela(relacao):
         print(x)
 
 
-
+ 
 texto = str(input("Digite o texto a ser verificado:")).lower()
 tratarErro(texto)       
 relacao = verificarFrequencia(texto) #recebe o dicionário
