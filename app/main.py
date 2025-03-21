@@ -1,6 +1,8 @@
 from exceptionPersonalizada import  ExtrapolacaoDeCaracteres
 
-
+def verificarFrequencia(palavra, lista):
+    return lista.count(palavra)
+    
 
 texto = str(input("Digite o texto a ser verificado:"))
 try:
@@ -8,5 +10,9 @@ try:
         raise ExtrapolacaoDeCaracteres("Texto com número de caracteres maior que o permitido!")
 except ExtrapolacaoDeCaracteres as e:
     print(e)
+       
+listaDePalavras = texto.split() # lista as palavras
+
+for x in listaDePalavras:
+    contagem = verificarFrequencia(x,listaDePalavras)
     
-texto.split() # lista as palavras
