@@ -1,5 +1,5 @@
 from exceptionPersonalizada import  ExtrapolacaoDeCaracteres
-
+import os
 def verificarFrequencia(texto):
     relacaoFinal = {} # dicionário para armazenar a tabela
     listaDePalavras = texto.split() #lista com palavras do texto
@@ -15,11 +15,21 @@ def tratarErro(texto):
     except ExtrapolacaoDeCaracteres as e:
         return print(e)
 
+def tabela(relacao):
+    relacaoOrdenada = dict(sorted(relacao.items(), key=lambda item:item[1]))
+    os.system('clear')
+    print("Palavras - Frequência\t")
+    for x in relacao.items():
+        print(x)
+
+
 
 texto = str(input("Digite o texto a ser verificado:")).lower()
 tratarErro(texto)       
 relacao = verificarFrequencia(texto) #recebe o dicionário
-relacaoOrdenada = dict(sorted(relacao.items(), key=lambda item:item[0]))
+tabela(relacao)
+
+
 
 
 
