@@ -1,8 +1,13 @@
 from exceptionPersonalizada import  ExtrapolacaoDeCaracteres
 
-def verificarFrequencia(palavra, lista):
-    return lista.count(palavra)
-    
+def verificarFrequencia(texto):
+    relacaoFinal = {} # dicionário para armazenar a tabela
+    listaDePalavras = texto.split() #lista com palavras do texto
+    for x in listaDePalavras:
+        contagem = verificarFrequencia(x,listaDePalavras)
+        relacaoFinal.update({x:contagem})
+    return relacaoFinal
+
 
 texto = str(input("Digite o texto a ser verificado:"))
 try:
@@ -11,9 +16,8 @@ try:
 except ExtrapolacaoDeCaracteres as e:
     print(e)
        
-listaDePalavras = texto.split() # lista as palavras
-relacaoFinal = {} # dicionário para armazenar a tabela
+relacao = verificarFrequencia(texto) #recebe o dicionário
 
-for x in listaDePalavras:
-    contagem = verificarFrequencia(x,listaDePalavras)
-    relacaoFinal.update({x:contagem})
+
+
+
