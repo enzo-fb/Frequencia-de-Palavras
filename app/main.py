@@ -16,10 +16,10 @@ def tratarErro(texto):
         return print(e)
 
 
-texto = str(input("Digite o texto a ser verificado:"))
+texto = str(input("Digite o texto a ser verificado:")).lower()
 tratarErro(texto)       
 relacao = verificarFrequencia(texto) #recebe o dicionário
-
+relacaoOrdenada = dict(sorted(relacao.items(), key=lambda item:item[0]))
 
 
 
