@@ -1,2 +1,2 @@
-# Frequencia de Palavras
+# Frequência de Palavras
  
